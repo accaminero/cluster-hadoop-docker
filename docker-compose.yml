@@ -5,7 +5,6 @@ services:
     image: accaminero/cloudera-hadoop-namenodep3
     container_name: namenode
     hostname: namenode
-    command: bash -c "wget https://raw.githubusercontent.com/accaminero/cluster-hadoop-docker/master/startup.sh; chmod u+x startup.sh; ./startup.sh;"
     networks:
       - hadoop          
     ports:
