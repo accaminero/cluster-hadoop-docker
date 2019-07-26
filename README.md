@@ -1,6 +1,8 @@
 # cluster-hadoop-docker
 
-Este repositorio se utiliza en diversas asignaturas de la ETSI Informática de la Universidad Nacional de Educación a Distancia (UNED).
+Este repositorio estábasado en https://github.com/loicmathieu/docker-cdh
+
+Se utiliza en diversas asignaturas de la ETSI Informática de la Universidad Nacional de Educación a Distancia (UNED) de España.
 
 Contiene instrucciones para el despliegue de un cluster de Hadoop, compuesto de 1 namenode, 1 yarmaster y 4 datanodes. Este cluster tiene instalados, entre otros paquetes, Python 3, Jupyter notebooks y mrjob.
 
