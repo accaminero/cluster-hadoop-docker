@@ -1,6 +1,6 @@
 # cluster-hadoop-docker
 
-Este repositorio estábasado en https://github.com/loicmathieu/docker-cdh
+Este repositorio está basado en https://github.com/loicmathieu/docker-cdh
 
 Se utiliza en diversas asignaturas de la ETSI Informática de la Universidad Nacional de Educación a Distancia (UNED) de España.
 
@@ -8,7 +8,7 @@ Contiene instrucciones para el despliegue de un cluster de Hadoop, compuesto de 
 
 ## Requerimientos
 
-Para desplefgar el cluster, es necesario tener instalado en nuestro ordenador el software Docker (https://docs.docker.com/install/) y docker-compose (https://docs.docker.com/compose/install/)
+Para desplegar el cluster, es necesario tener instalado en nuestro ordenador el software Docker (https://docs.docker.com/install/) y docker-compose (https://docs.docker.com/compose/install/)
 
 ## Despliegue
 
@@ -31,7 +31,7 @@ d4c276ae2df4        accaminero/cloudera-hadoop-datanodep3   "/usr/bin/supervisor
 b0ec396f34f4        accaminero/cloudera-hadoop-datanodep3   "/usr/bin/supervisor…"   About an hour ago   Up About an hour    8042/tcp, 50020/tcp, 50075/tcp                                               datanode4
 fb0a9c55f254        loicmathieu/cloudera-cdh-yarnmaster     "/usr/bin/supervisor…"   About an hour ago   Up About an hour    0.0.0.0:8032->8032/tcp, 8080/tcp                                             yarnmaster
 ```
-Para que el trabajo con el cluster sea más sencilla, es conveniente incluir el mapeo entre direcciones IP de cada contenedor y su hostname. Esto se hace modificando el fichero /etc/hosts de Linux (o su equivalente en otros sistemas operativos) para que incluya dicho mapeo.
+Para que el trabajo con el cluster sea más sencillo, es conveniente incluir el mapeo entre direcciones IP de cada contenedor y su hostname. Esto se hace modificando el fichero /etc/hosts de Linux (o su equivalente en otros sistemas operativos) para que incluya dicho mapeo.
 
 
 Para averiguar la dirección IP de un contenedor, ejecutamos la siguiente orden para cada uno de los contenedores:
