@@ -2,7 +2,50 @@
 
 Este repositorio se utiliza en diversas asignaturas de la ETSI Informática de la Universidad Nacional de Educación a Distancia (UNED).
 
-Contiene instrucciones para el despliegue de un cluster de Hadoop. Tiene instalados, entre otros paquetes, Python 3, Jupyter notebooks y mrjob.
+Contiene instrucciones para el despliegue de un cluster de Hadoop, compuesto de 1 namenode, 1 yarmaster y 4 datanodes. Este cluster tiene instalados, entre otros paquetes, Python 3, Jupyter notebooks y mrjob.
+
+Para desplegar el cluster, tras descargar o clonar el repositorio en tu ordenador, ejecuta la orden:
+
+docker-compose up -d
+
+Tras esto, podrás ver los contenedores ejecutándose, como se ve abajo:
+
+$ docker ps
+CONTAINER ID        IMAGE                                   COMMAND                  CREATED             STATUS              PORTS                                                                        NAMES
+4c16d001dc51        accaminero/cloudera-hadoop-datanodep3   "/usr/bin/supervisor…"   About an hour ago   Up About an hour    8042/tcp, 50020/tcp, 50075/tcp                                               datanode3
+cf7083bc58b5        accaminero/cloudera-hadoop-namenodep3   "bash -c 'wget https…"   About an hour ago   Up About an hour    0.0.0.0:8020->8020/tcp                                                       namenode
+6532dc0a47d7        accaminero/cloudera-hadoop-datanodep3   "/usr/bin/supervisor…"   About an hour ago   Up About an hour    0.0.0.0:8042->8042/tcp, 0.0.0.0:50020->50020/tcp, 0.0.0.0:50075->50075/tcp   datanode1
+d4c276ae2df4        accaminero/cloudera-hadoop-datanodep3   "/usr/bin/supervisor…"   About an hour ago   Up About an hour    8042/tcp, 50020/tcp, 50075/tcp                                               datanode2
+b0ec396f34f4        accaminero/cloudera-hadoop-datanodep3   "/usr/bin/supervisor…"   About an hour ago   Up About an hour    8042/tcp, 50020/tcp, 50075/tcp                                               datanode4
+fb0a9c55f254        loicmathieu/cloudera-cdh-yarnmaster     "/usr/bin/supervisor…"   About an hour ago   Up About an hour    0.0.0.0:8032->8032/tcp, 8080/tcp                                             yarnmaster
+
+Para que el trabajo con el cluster sea más sencilla, es conveniente incluir el mapeo entre direcciones IP de cada contenedor y su hostname. Esto se hace modificando el fichero /etc/hosts de Linux (o su equivalente en otros sistemas operativos) para que incluya dicho mapeo.
+
+
+Para averiguar la dirección IP de un contenedor, ejecutamos la siguiente orden para cada uno de los contenedores:
+
+$ docker inspect namenode | egrep IPAddress
+            "SecondaryIPAddresses": null,
+            "IPAddress": "",
+                    "IPAddress": "172.28.0.6",
+
+Una vez tengamos la dirección IP de cada contenedor, incluiremos en el fichero /etc/hosts (o su equivalente en sistemas operativos distintos de Linux) unas líneas como las siguientes:
+
+$ cat /etc/hosts
+...
+
+172.28.0.6    namenode
+172.28.0.4      yarnmaster
+172.28.0.7    datanode1
+172.28.0.5      datanode2
+172.28.0.2      datanode3
+172.28.0.3      datanode4
+
+...
+
+
+Tras esto, podemos acceder al servidor Jupyter notebooks a través del navegador, con la siguiente URL: namenode:8889
+
 
 Para cualquier consulta, accaminero@scc.uned.es / @accaminero
 
