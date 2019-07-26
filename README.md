@@ -6,6 +6,12 @@ Se utiliza en diversas asignaturas de la ETSI Informática de la Universidad Nac
 
 Contiene instrucciones para el despliegue de un cluster de Hadoop, compuesto de 1 namenode, 1 yarmaster y 4 datanodes. Este cluster tiene instalados, entre otros paquetes, Python 3, Jupyter notebooks y mrjob.
 
+## Requerimientos
+
+Para desplefgar el cluster, es necesario tener instalado en nuestro ordenador el software Docker (https://docs.docker.com/install/) y docker-compose (https://docs.docker.com/compose/install/)
+
+## Despliegue
+
 Para desplegar el cluster, tras descargar o clonar el repositorio en tu ordenador, ejecuta la orden:
 
 ```
@@ -52,6 +58,8 @@ $ cat /etc/hosts
 
 Tras esto, podemos acceder al servidor Jupyter notebooks a través del navegador, con la siguiente URL: namenode:8889
 
+
+## Contacto
 
 Para cualquier consulta, accaminero@scc.uned.es / @accaminero
 
