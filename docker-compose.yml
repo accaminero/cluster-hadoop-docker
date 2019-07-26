@@ -5,15 +5,20 @@ services:
     image: accaminero/cloudera-hadoop-namenodep3
     container_name: namenode
     hostname: namenode
-    command: bash -c "wget https://raw.githubusercontent.com/accaminero/cluster-hadoop-docker/master/startup.sh; chmod u+x startup.sh; ./startup.sh;"
+    command: bash -c "wget https://raw.githubusercontent.com/accaminero/cluster-hadoop-docker/master/startup.sh; 
+                      wget https://raw.githubusercontent.com/accaminero/cluster-hadoop-docker/master/supervisord.conf; 
+                      /usr/bin/supervisord -c ./supervisord.conf;
+                      chmod u+x startup.sh; 
+                      ./startup.sh;" 
     networks:
       - hadoop          
     ports:
       - 8020:8020
-    tty: true
     volumes:
-      - /media/notebooks:/media/notebooks
-    
+      - /media/notebooks:/media/notebooks 
+    tty: true
+    stdin_open: true
+  
   yarnmaster:
     image: loicmathieu/cloudera-cdh-yarnmaster
     container_name: yarnmaster
