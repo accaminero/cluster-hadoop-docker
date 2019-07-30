@@ -64,11 +64,17 @@ Tras esto, podemos acceder al servidor Jupyter notebooks a través del navegador
 Para cualquier consulta, mis datos de contacto son los siguientes:
 
 Dr. Agustín C. Caminero Herráez
+
 Dpto. de Sistemas de Comunicación y Control. 
+
 ETSI Informática, UNED.
+
 C/ Juan del Rosal, 16. 28040 Madrid. Spain.
+
 Teléfono: 0034 91398 9468
+
 Email: accaminero (at) scc (dot) uned (dot) es
+
 Twitter: @accaminero 
 
 
